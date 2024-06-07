@@ -1,6 +1,3 @@
-# tacticalrmm_swarm_portainer_arm64
-Deploy do TacticalRMM no DockerSwarm com Portainer e em ambiente ARM64
-
 # Deploy do TacticalRMM no Portainer usando Docker Swarm em Ambiente ARM64
 
 Este guia fornece um passo a passo para realizar o deploy do TacticalRMM no Portainer usando Docker Swarm em um ambiente ARM64.
