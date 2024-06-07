@@ -79,6 +79,22 @@ Copiar e Editar o Arquivo .env
 
 Edite o arquivo .env para definir as variáveis de ambiente como POSTGRES_USER, POSTGRES_PASS, APP_HOST, API_HOST, MESH_USER, MESH_HOST, TRMM_USER, TRMM_PASS, etc.
 
+### 5.1 Criar certificado curinga
+
+Configurar o dominio para o ip do serviço.
+
+```sh
+sudo certbot certonly --manual -d *.tecnologiacorporativa.com.br --agree-tos --no-bootstrap --preferred-challenges dns
+```
+
+Incluia uma entrada txt no dns com o valor retornado pelo certbot, e clique em ok.
+
+```sh
+sudo echo "CERT_PUB_KEY=$(sudo base64 -w 0 /etc/letsencrypt/live/tecnologiacorporativa.com.br/fullchain.pem)" >> .env
+
+sudo echo "CERT_PRIV_KEY=$(sudo base64 -w 0 /etc/letsencrypt/live/tecnologiacorporativa.com.br/privkey.pem)" >> .env
+```
+
 ## Passo 6: Deploy com Docker Stack no Portainer
 
 Crie uma stack no portainer e cole a stack abaixo. Não esqueça de importar o arquivo .env ou configurar as váriaves diretamente no portainer.
